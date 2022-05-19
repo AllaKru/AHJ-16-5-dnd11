@@ -1,0 +1,316 @@
+/* p {
+    color: black;
+}
+
+.file-container {
+    width: 200px;
+    height: 40px;
+    position: relative;
+}
+
+.overlapped {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0; margin: 0;
+    opacity: 0.1;
+    width: 100%;
+}
+
+.overlap {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0; margin: 0;
+    width: 100%;
+    background: #eee;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+}
+.overlap::before{
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px; bottom: 3px; right: 3px;
+    border: 1px dashed salmon;
+   
+}
+.overlap:active::before{
+   
+  
+    border: 1px dashed rgb(24, 23, 23);
+    
+}
+
+.text-preview {
+    height: 200px;
+    width: 100%;
+    border: 1px dashed black;
+    border-radius: 5px;
+}
+
+.drop-area {
+    height: 200px;
+    width: 100%;
+    border: 1px dashed red;
+    border-radius: 5px;
+}
+
+
+.items {
+    list-style-type: none;
+    padding-left: 0;
+}
+.items-item {
+    border: 1px solid #999;
+    padding: 10px;
+    margin-bottom: -1px;;
+    cursor: pointer;
+    list-style-type: none;
+}
+.items-item:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.items-item:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.items-item.dragged {
+    border-radius: 10px;
+    position: absolute;
+    z-index: 999;
+    pointer-events: none;
+    background: #fff;
+} */
+* {
+  box-sizing: border-box;
+  
+}
+.file-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: plum;
+  max-width: 1000px;
+  margin: 30px auto;
+  /* left: 30%; */
+  padding: 20px;
+  min-height: 60px;
+  border-radius: 5px;
+  font: 1.2em "Fira Sans", sans-serif;
+  /* position: relative; */
+}
+.container {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+  padding: 10px;
+  min-height: 60px;
+  /* position: relative; */
+}
+h3 {
+  margin: 0px;
+}
+.tag {
+  /* margin-top: 40px; */
+  cursor: grab;
+  opacity: 0.5;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0px 0px 0px;
+  margin: 0px 0px 0px;
+  min-height: 60px;
+  /* margin-top: 30px; */
+  /* position: relative; */
+  /* контейнер релатив, его детки - абсолют!!! */
+  /* width: 300px; */
+  /* width: 100%; */
+}
+.item {
+  /* display: flex;
+  flex-direction: column; */
+  /* position: absolute; */
+  /* background-color: azure; */
+  /* box-sizing: border-box; */
+  /* max-width: 100%;
+  min-width: 100%; */
+  /* min-height: 60px; */
+  /* position: absolute; */
+  cursor: grab;
+  opacity: 0.5;
+  border-radius: 2px;
+  width: 100%;
+  margin-top: 10px;
+  /* top: 150px; */
+  /* min-height: 40px; */
+
+  /* padding: 10px; */
+  /* margin-bottom: -1px; */
+
+  list-style-type: none;
+  /* position: fixed; */
+}
+.item_card {
+  cursor: grab;
+  opacity: 1;
+  border-radius: 2px;
+  /* width: 100%; */
+  list-style-type: none;
+  margin-top: 10px;
+  /* position: absolute; */
+   /* position: relative; */
+  /* margin-top: 10px; */
+}
+.button {
+  /* display: block; */
+  background-color: rgb(235, 196, 219);
+  border: 3px solid purple;
+  padding: 5px;
+  border-radius: 3px;
+}
+span {
+  color: purple;
+}
+.textarea {
+  /* position: relative; */
+  background-color: azure;
+  border: 3px solid purple;
+  border-radius: 5px;
+  padding: 10px;
+  /* margin-bottom: -1px; */
+  max-width: 100%;
+  min-width: 100%;
+  /* min-height: 60px; */
+  max-height: 300px;
+  overflow: scroll;
+  line-height: 1.5;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgb(73, 41, 71);
+
+  /* white-space: pre-wrap; */
+}
+.card {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid purple;
+  border-radius: 5px;
+  padding: 10px;
+  /* margin-bottom: -1px; */
+  /* max-width: 100%;
+  min-width: 100%; */
+  /* min-height: 60px; */
+  max-height: 300px;
+  opacity: 1;
+  line-height: 1.5;
+    /* position: relative; */
+}
+.gost{
+ background-color: rgb(245, 199, 245); 
+ border: 1px dotted purple;
+  border-radius: 5px;
+  padding: 10px;
+ height: 50px;
+  /* opacity: 1;
+  line-height: 1.5; */
+  }
+/* .items-item.dragged {
+  border-radius: 10px;
+  position: absolute;
+  z-index: 999;
+  pointer-events: none;
+  background: #fff;
+} */
+.add2 {
+  display: none;
+}
+.add3 {
+  display: block;
+}
+.add {
+  margin-top: 50px;
+}
+.opacity {
+  opacity: 1;
+}
+.add:hover,
+.add:active {
+  opacity: 1;
+}
+.done {
+  /* background-color: darkorchid; */
+  font: 0.8em "Fira Sans", sans-serif;
+}
+.done::before {
+  /* display: block; */
+  /* position: absolute; */
+  /* content: '123';
+  width: 100%;
+  height: 50px;
+  background-color: blueviolet;
+  color: black; */
+  /* width: 350px;
+  height: 50px; */
+  /* display: block; */
+  content: "Напишите что-нибудь...";
+  background-color: darkorchid;
+  /* position: relative; */
+  /* z-index: 99999; */
+  border: 2px dashed #009933;
+  border-radius: 3px;
+  padding: 5px;
+  /* border-style: solid;
+  border-width: 0 0.3em 0.25em 0;  */
+  height: 1em;
+  top: 1.3em;
+  left: 0.6em;
+  margin-top: -1em;
+  /* transform: rotate(45deg); */
+  width: 0.5em;
+}
+.span{
+  cursor: context-menu;
+}
+.item_remove{
+  /* position: relative; */
+  /* background-color: #a5aaa7;
+  border: 2px solid grey;
+  border-radius: 5px; */
+  content: "Х";
+
+}
+.item_remove:hover::before {
+  /* content: "Х";
+  position: absolute;
+  top: 0.5em;
+  left: 250px;
+  cursor: context-menu; */
+  /* background-color: darkorchid;
+  border: 2px dashed #009933;
+  border-radius: 3px;
+  padding: 5px;
+  height: 1em;
+  top: 1.3em;
+  left: 0.6em;
+  margin-top: -1em;  
+  width: 0.5em; */
+  content: "Х";
+  top: 1.5em;
+  left: 250px;
+  position: relative;
+  cursor: context-menu; 
+}
+.dragged{
+  /* border-radius: 10px; */
+  /* cursor: grab; */
+  position: absolute;
+  
+  /* top: 0;
+  left: 0; */
+  z-index: 999;
+  pointer-events: none;
+  /* width: 100%; */
+  width: 300px;
+  /* background: #fff; */
+}
+
